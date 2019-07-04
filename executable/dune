@@ -1,0 +1,2 @@
+(executable (name ReasonSkiaExample) (public_name ReasonSkiaExample.exe)
+    (libraries reason-skia-example.library)) 

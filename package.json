@@ -1,0 +1,33 @@
+{
+  "name": "reason-skia-example",
+  "version": "0.0.0",
+  "description": "My Project",
+  "esy": {
+     "buildEnv": {
+      "esy_skia_install": "c:/Users/manas/development/esy-skia/_esy/default/store/b/esy_skia-75ebbdd1",
+      "esy_skia_build": "c:/Users/manas/development/esy-skia/_esy/default/store/b/esy_skia-75ebbdd1",
+      "OCAMLRUNPARAM": "b"
+    },
+    "build": "dune build -p #{self.name}",
+    "release": {
+      "releasedBinaries": ["DuneCExampleApp.exe"]
+    }
+  },
+ "scripts": {
+    "test": "esy x RunDuneCExampleTests.exe"
+  },
+  "dependencies": {
+    "@opam/dune": "*",
+    "@esy-ocaml/reason": "*",
+    "refmterr": "*",
+    "ocaml": "4.7.x",
+    "esy-skia": "*",
+    "@reason-native/rely": "*"
+  },
+  "devDependencies": {
+    "@opam/merlin": "*"
+  },
+  "resolutions": {
+    "esy-skia": "manuhornung/esy-skia#bcb7d4b608f1f7892f8e703e000cb2587f085c51"
+  }
+}

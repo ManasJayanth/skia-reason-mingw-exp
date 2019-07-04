@@ -1,0 +1,22 @@
+(ignored_subdirs (skia))
+
+(library (name Library)
+         (public_name reason-skia-example.library)
+         (ocamlopt_flags -ccopt (:include ocamlopt_flags.sexp) -verbose)
+         (self_build_stubs_archive (skia)))
+
+(rule          
+    (targets ocamlopt_flags.sexp c_flags.sexp c_library_flags.sexp)
+    (deps (:discover config/discover.exe))
+    (action (run %{discover})))
+
+(rule
+ (deps (source_tree skia))
+ (targets libskia_stubs.a dllskia_stubs.dll)
+ (action (progn
+           (chdir skia (run make))
+           (run cp skia/libskia_stubs.a libskia_stubs.a)
+           (run cp skia/dllskia_stubs.dll dllskia_stubs.dll)
+          ))
+         
+ )
